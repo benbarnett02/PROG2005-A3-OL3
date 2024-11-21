@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4d696edb-b50e-4af3-ad1a-03d25a8119b1" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.vscode/extensions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/capacitor.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/ionic.config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/app-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/app.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/explore-container/explore-container.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/explore-container/explore-container.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/explore-container/explore-container.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/explore-container/explore-container.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/explore-container/explore-container.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab1/tab1-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab1/tab1.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab1/tab1.page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab1/tab1.page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab1/tab1.page.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab1/tab1.page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab2/tab2-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab2/tab2.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab2/tab2.page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab2/tab2.page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab2/tab2.page.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab2/tab2.page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab3/tab3-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab3/tab3.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab3/tab3.page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab3/tab3.page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab3/tab3.page.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tab3/tab3.page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tabs/tabs-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tabs/tabs.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tabs/tabs.page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tabs/tabs.page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tabs/tabs.page.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/tabs/tabs.page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/assets/icon/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/assets/shapes.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/global.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/theme/variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/zone-flags.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/.vscode/extensions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/capacitor.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/ionic.config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/app-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/app.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/explore-container/explore-container.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/explore-container/explore-container.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/explore-container/explore-container.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/explore-container/explore-container.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/explore-container/explore-container.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab1/tab1-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab1/tab1.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab1/tab1.page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab1/tab1.page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab1/tab1.page.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab1/tab1.page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab2/tab2-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab2/tab2.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab2/tab2.page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab2/tab2.page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab2/tab2.page.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab2/tab2.page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab3/tab3-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab3/tab3.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab3/tab3.page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab3/tab3.page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab3/tab3.page.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tab3/tab3.page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tabs/tabs-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tabs/tabs.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tabs/tabs.page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tabs/tabs.page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tabs/tabs.page.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/app/tabs/tabs.page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/assets/icon/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/assets/shapes.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/global.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/theme/variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/src/zone-flags.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerApp/tsconfig.spec.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/benbarnett02/PROG2005-A3-OL3.git&quot;,
+    &quot;accountId&quot;: &quot;6f90298c-0f70-4621-8900-60fd84a77f13&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2p9GKpNDdQNfu6jL0XQaT77dU3v" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.Angular Application.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/benja/WebstormProjects/PROG2005-A3-OL3&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.Angular CLI Server.executor&quot;: &quot;Run&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (app)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" engineId="37cae5b9-e8b2-4949-9172-aafa37fbc09c" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Angular Application" />
+      <item itemvalue="Karma.Tests (app)" />
+      <item itemvalue="npm.Angular CLI Server" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23339.15" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d696edb-b50e-4af3-ad1a-03d25a8119b1" name="Changes" comment="" />
+      <created>1732170816505</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732170816505</updated>
+      <workItem from="1732170817532" duration="796000" />
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <option name="closed" value="true" />
+      <created>1732171612504</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732171612504</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
+</project>
