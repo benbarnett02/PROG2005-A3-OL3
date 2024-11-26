@@ -1,0 +1,43 @@
+ion-content {
+  --background: var(--ion-color-light);
+
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 2rem;
+  }
+
+  ion-list {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  ion-item {
+    --background: var(--ion-color-light);
+    margin-bottom: 1rem;
+    border-radius: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .validation-error {
+    padding: 0.5rem 1rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  ion-button {
+    margin-top: 2rem;
+    --border-radius: 8px;
+    height: 48px;
+    font-size: 1.1rem;
+    text-transform: none;
+  }
+
+  .ion-text-center {
+    margin-top: 1rem;
+  }
+}

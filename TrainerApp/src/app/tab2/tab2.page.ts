@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  selectedSegment = 'all';
 
   constructor() {}
 
+  segmentChanged(event: any) {
+    this.selectedSegment = event.detail.value;
+  }
 }
