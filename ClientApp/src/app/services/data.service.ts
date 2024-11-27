@@ -53,13 +53,9 @@ export class ClientService {
     return this.http.get<Client[]>(this.baseUrl + '/client/' + trainerId);
   }
 
-  clientLogin(email: string, password: string): Client | null {
+  clientLogin(email: string, password: string): Observable<LoginResponse> {
     // Post the email and password to the server
-     this.http.post<LoginResponse>(this.baseUrl + '/client/login', {email, password}).subscribe((response) => {
-      this.currentClient = response.user;
-     });
-    return this.currentClient;
-
+     return this.http.post<LoginResponse>(this.baseUrl + '/client/login', {email, password});
   }
 
 }
