@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d696edb-b50e-4af3-ad1a-03d25a8119b1" name="Changes" comment="Created basic welcome/home page.">
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/services/data.service.ts" afterDir="false" />
+    <list default="true" id="4d696edb-b50e-4af3-ad1a-03d25a8119b1" name="Changes" comment="set up auth service">
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/pages/login/login.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/pages/login/login.page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/pages/login/login.page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/pages/login/login.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/tab1/tab1.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/tab1/tab1.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/tab1/tab1.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/tab1/tab1.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/services/auth.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -32,7 +35,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/benbarnett02/PROG2005-A3-OL3.git&quot;,
-    &quot;accountId&quot;: &quot;6f90298c-0f70-4621-8900-60fd84a77f13&quot;
+    &quot;accountId&quot;: &quot;3727d820-92da-4ba9-8dc7-afe7dc131cf7&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -43,24 +46,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JavaScript Debug.Angular Application.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/benja/Downloads/Sample Angular REST Application&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Angular CLI Server.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\benja\\WebstormProjects\\PROG2005-A3-OL3\\ClientApp\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.Angular Application.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/benja/Downloads/Sample Angular REST Application",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.Angular CLI Server.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\BenBarnett\\WebstormProjects\\PROG2005-A3-OL3\\ClientApp\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\benja\WebstormProjects\PROG2005-A3-OL3\ClientApp\src\app\services" />
@@ -97,7 +101,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23339.15" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-WS-242.21829.149" />
       </set>
     </attachedChunks>
   </component>
@@ -110,6 +114,8 @@
       <option name="presentableId" value="Default" />
       <updated>1732170816505</updated>
       <workItem from="1732170817532" duration="21917000" />
+      <workItem from="1732677503536" duration="66000" />
+      <workItem from="1732677580897" duration="5084000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -135,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732617307882</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="set up auth service">
+      <option name="closed" value="true" />
+      <created>1732698150135</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732698150135</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +169,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="Created basic welcome/home page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created basic welcome/home page." />
+    <MESSAGE value="set up auth service" />
+    <option name="LAST_COMMIT_MESSAGE" value="set up auth service" />
   </component>
 </project>

@@ -15,6 +15,7 @@ export class AuthService {
   }
 
   login (email: string, password: string) : Observable<Client> {
+    console.log("yeee2")
     if (email.length ! > 0 && password.length ! > 0) {
       return new Observable(subscriber => {subscriber.error(new Error('Email and password are required'))});
     }
@@ -25,7 +26,8 @@ export class AuthService {
         localStorage.setItem('currentClient', JSON.stringify(this.currentClient));
         return response.user;
       } else {
-        return new Error('response.message');
+        console.log(response.message())
+        return new Error(response.message);
       }
     });
 
