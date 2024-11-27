@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d696edb-b50e-4af3-ad1a-03d25a8119b1" name="Changes" comment="set up auth service">
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/pages/login/login.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/pages/login/login.page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/pages/login/login.page.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/pages/login/login.page.ts" afterDir="false" />
+    <list default="true" id="4d696edb-b50e-4af3-ad1a-03d25a8119b1" name="Changes" comment="Login page exists... not working yet.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/services/auth.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -51,7 +51,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "JavaScript Debug.Angular Application.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "client-login",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/benja/Downloads/Sample Angular REST Application",
     "node.js.detected.package.eslint": "true",
@@ -115,7 +115,7 @@
       <updated>1732170816505</updated>
       <workItem from="1732170817532" duration="21917000" />
       <workItem from="1732677503536" duration="66000" />
-      <workItem from="1732677580897" duration="5084000" />
+      <workItem from="1732677580897" duration="6386000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -149,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732698150135</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Login page exists... not working yet.">
+      <option name="closed" value="true" />
+      <created>1732699990806</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732699990806</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +178,7 @@
     <MESSAGE value="init" />
     <MESSAGE value="Created basic welcome/home page." />
     <MESSAGE value="set up auth service" />
-    <option name="LAST_COMMIT_MESSAGE" value="set up auth service" />
+    <MESSAGE value="Login page exists... not working yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Login page exists... not working yet." />
   </component>
 </project>
