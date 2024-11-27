@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Client, ClientService} from "./data.service";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {Router} from "@angular/router";
 
 @Injectable({providedIn: 'root'})
@@ -14,38 +14,43 @@ export class AuthService {
 
   }
 
-  login (email: string, password: string) : Observable<Client> {
+  login(email: string, password: string): Observable<Client> {
     console.log("yeee2")
-    if (email.length ! > 0 && password.length ! > 0) {
-      return new Observable(subscriber => {subscriber.error(new Error('Email and password are required'))});
+    console.log(email);
+    console.log(password);
+
+    if (email.length < 1 && password.length < 1) {
+      console.log("length issue")
+      throw new Error('Email and password are required');
     }
 
-    this.clientService.clientLogin(email, password).subscribe((response :any) => {
-      if (response.user) {
-        this.currentClient = response.user;
-        localStorage.setItem('currentClient', JSON.stringify(this.currentClient));
-        return response.user;
-      } else {
-        console.log(response.message())
-        return new Error(response.message);
-      }
-    });
-
-    return new Observable(subscriber => {subscriber.error(new Error('Login failed.'))});
-
+    return this.clientService.clientLogin(email, password).pipe(
+      map((response: any) => {
+        console.log("response returned")
+        if (response.user) {
+          console.log(response.user)
+          this.currentClient = response.user;
+          localStorage.setItem('currentClient', JSON.stringify(this.currentClient));
+          return response.user;
+        } else {
+          console.log(response.message)
+          throw new Error(response.message);
+        }
+      })
+    );
   }
 
-  logout() : void{
+  logout(): void {
     this.currentClient = null;
     localStorage.removeItem('currentClient');
     this.router.navigate(['/login']);
   }
 
-  isAuthenticated() : boolean {
+  isAuthenticated(): boolean {
     return this.currentClient !== null;
   }
 
-  getCurrentClient() : Client | null {
+  getCurrentClient(): Client | null {
     return this.currentClient;
   }
 
