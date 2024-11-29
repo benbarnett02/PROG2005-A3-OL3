@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { map, delay } from 'rxjs/operators';
+import { BehaviorSubject, Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ApiService } from './api.service';
 
 export interface User {
   email: string;
-  token: string;
+  id: string;
+  name: string;
 }
 
 @Injectable({
@@ -18,7 +20,8 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private apiService: ApiService
   ) {
     this.currentUserSubject = new BehaviorSubject<User | null>(
       JSON.parse(localStorage.getItem('currentUser') || 'null')
@@ -30,31 +33,19 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  login(email: string, password: string) {
-    // Mock API response for testing
-    if (email === 'test@example.com' && password === 'password123') {
-      return of({
-        success: true,
-        token: 'mock-jwt-token'
-      }).pipe(
-        delay(1000), // Simulate network delay
-        map(response => {
-          const user: User = {
-            email: email,
-            token: response.token
-          };
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
-          return user;
-        })
-      );
-    } else {
-      return new Observable(subscriber => {
-        setTimeout(() => {
-          subscriber.error({ error: { message: 'Invalid email or password' } });
-        }, 1000);
-      });
-    }
+  login(email: string, password: string): Observable<User> {
+    return this.apiService.trainerLogin(email, password).pipe(
+      map(trainer => {
+        const user: User = {
+          email: trainer.email,
+          id: trainer.id,
+          name: trainer.name
+        };
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      })
+    );
   }
 
   logout() {

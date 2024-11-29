@@ -1,2 +1,138 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Clients</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
+  <div class="ion-padding">
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container ion-text-center">
+      <ion-spinner name="bubbles"></ion-spinner>
+      <p>Loading clients...</p>
+    </div>
+
+    <!-- Error State -->
+    <ion-text color="danger" *ngIf="error">
+      <p>{{ error }}</p>
+    </ion-text>
+
+    <!-- Client List -->
+    <div *ngIf="!isLoading && !error && !showDetails" class="fade-in">
+      <!-- Sort Controls -->
+      <div class="sort-buttons ion-padding-bottom">
+        <ion-button 
+          fill="clear" 
+          size="small" 
+          [color]="sortField === 'name' ? 'primary' : 'medium'"
+          (click)="onSortChange('name')">
+          Name
+          <ion-icon 
+            *ngIf="sortField === 'name'"
+            [name]="sortDirection === 'asc' ? 'arrow-up' : 'arrow-down'"
+            slot="end">
+          </ion-icon>
+        </ion-button>
+
+        <ion-button 
+          fill="clear" 
+          size="small"
+          [color]="sortField === 'age' ? 'primary' : 'medium'"
+          (click)="onSortChange('age')">
+          Age
+          <ion-icon 
+            *ngIf="sortField === 'age'"
+            [name]="sortDirection === 'asc' ? 'arrow-up' : 'arrow-down'"
+            slot="end">
+          </ion-icon>
+        </ion-button>
+
+        <ion-button 
+          fill="clear" 
+          size="small"
+          [color]="sortField === 'fitnessLevel' ? 'primary' : 'medium'"
+          (click)="onSortChange('fitnessLevel')">
+          Fitness Level
+          <ion-icon 
+            *ngIf="sortField === 'fitnessLevel'"
+            [name]="sortDirection === 'asc' ? 'arrow-up' : 'arrow-down'"
+            slot="end">
+          </ion-icon>
+        </ion-button>
+      </div>
+
+      <ion-list>
+        <ion-item-sliding *ngFor="let client of clients">
+          <ion-item class="client-item" (click)="viewClientDetails(client)">
+            <ion-avatar slot="start">
+              <div [ngStyle]="getAvatarStyle(client.name)" class="avatar-container">
+                {{ getInitials(client.name) }}
+              </div>
+            </ion-avatar>
+            <ion-label>
+              <h2>{{ client.name }}</h2>
+              <p>Age: {{ client.age || 'N/A' }}</p>
+              <p>Fitness Level: {{ client.fitnessLevel || 'N/A' }}</p>
+              <p>Goals: {{ client.goals || 'N/A' }}</p>
+            </ion-label>
+            <ion-note slot="end" color="medium">
+              <ion-icon name="chevron-forward"></ion-icon>
+            </ion-note>
+          </ion-item>
+        </ion-item-sliding>
+      </ion-list>
+    </div>
+
+    <!-- Client Details View -->
+    <div *ngIf="showDetails && selectedClient" class="client-details fade-in">
+      <ion-button fill="clear" (click)="backToList()">
+        <ion-icon slot="start" name="arrow-back"></ion-icon>
+        Back to list
+      </ion-button>
+
+      <div class="details-header ion-padding-vertical">
+        <ion-avatar class="large-avatar">
+          <div [ngStyle]="getAvatarStyle(selectedClient.name)" class="avatar-container">
+            {{ getInitials(selectedClient.name) }}
+          </div>
+        </ion-avatar>
+        <h1>{{ selectedClient.name }}</h1>
+      </div>
+
+      <ion-list>
+        <ion-item>
+          <ion-label>
+            <h2>Age</h2>
+            <p>{{ selectedClient.age || 'N/A' }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <h2>Fitness Level</h2>
+            <p>{{ selectedClient.fitnessLevel || 'N/A' }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <h2>Goals</h2>
+            <p>{{ selectedClient.goals || 'N/A' }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="selectedClient.medicalConditions && selectedClient.medicalConditions.length > 0">
+          <ion-label>
+            <h2>Medical Conditions</h2>
+            <p>{{ selectedClient.medicalConditions?.join(', ') || 'None' }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>

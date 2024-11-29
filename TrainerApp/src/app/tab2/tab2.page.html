@@ -1,2 +1,114 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Search Clients</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
+  <div class="ion-padding">
+    <!-- Search Bar -->
+    <ion-searchbar
+      [(ngModel)]="searchTerm"
+      (ionInput)="onSearch()"
+      placeholder="Search by name..."
+      [debounce]="300"
+      animated="true"
+      show-clear-button="always">
+    </ion-searchbar>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container ion-text-center">
+      <ion-spinner name="bubbles"></ion-spinner>
+      <p>Loading clients...</p>
+    </div>
+
+    <!-- Error State -->
+    <ion-text color="danger" *ngIf="error">
+      <p class="ion-text-center">{{ error }}</p>
+    </ion-text>
+
+    <!-- Search Results -->
+    <div *ngIf="!isLoading && !showDetails" class="fade-in">
+      <ion-list-header>
+        <ion-label>
+          <h1 *ngIf="!searchTerm">All Clients</h1>
+          <h1 *ngIf="searchTerm">Search Results</h1>
+          <p *ngIf="searchResults.length > 0">{{ searchResults.length }} client(s) found</p>
+        </ion-label>
+      </ion-list-header>
+
+      <ion-list *ngIf="searchResults.length > 0">
+        <ion-item-sliding *ngFor="let client of searchResults">
+          <ion-item class="client-item" (click)="viewClientDetails(client)">
+            <ion-avatar slot="start">
+              <div [ngStyle]="getAvatarStyle(client.name)" class="avatar-container">
+                {{ getInitials(client.name) }}
+              </div>
+            </ion-avatar>
+            <ion-label>
+              <h2>{{ client.name }}</h2>
+              <p>Age: {{ client.age || 'N/A' }}</p>
+              <p>Fitness Level: {{ client.fitnessLevel || 'N/A' }}</p>
+            </ion-label>
+            <ion-note slot="end" color="medium">
+              <ion-icon name="chevron-forward"></ion-icon>
+            </ion-note>
+          </ion-item>
+        </ion-item-sliding>
+      </ion-list>
+
+      <!-- Empty State -->
+      <div *ngIf="searchResults.length === 0" class="ion-text-center ion-padding empty-state">
+        <ion-icon name="search-outline" size="large"></ion-icon>
+        <p>No clients found matching your search.</p>
+      </div>
+    </div>
+
+    <!-- Client Details View -->
+    <div *ngIf="showDetails && selectedClient" class="client-details fade-in">
+      <ion-button fill="clear" (click)="backToResults()">
+        <ion-icon slot="start" name="arrow-back"></ion-icon>
+        Back to results
+      </ion-button>
+
+      <div class="details-header ion-padding-vertical">
+        <ion-avatar class="large-avatar">
+          <div [ngStyle]="getAvatarStyle(selectedClient.name)" class="avatar-container">
+            {{ getInitials(selectedClient.name) }}
+          </div>
+        </ion-avatar>
+        <h1>{{ selectedClient.name }}</h1>
+      </div>
+
+      <ion-list>
+        <ion-item>
+          <ion-label>
+            <h2>Age</h2>
+            <p>{{ selectedClient.age || 'N/A' }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <h2>Fitness Level</h2>
+            <p>{{ selectedClient.fitnessLevel || 'N/A' }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <h2>Goals</h2>
+            <p>{{ selectedClient.goals || 'N/A' }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="selectedClient.medicalConditions && selectedClient.medicalConditions.length > 0">
+          <ion-label>
+            <h2>Medical Conditions</h2>
+            <p>{{ selectedClient.medicalConditions?.join(', ') || 'None' }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>
