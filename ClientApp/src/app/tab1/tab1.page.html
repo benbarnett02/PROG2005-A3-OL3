@@ -3,9 +3,12 @@
     <ion-title>
       Tab 1
     </ion-title>
+    <ion-buttons slot="end">
+      <app-logout-component></app-logout-component>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -13,12 +16,38 @@
     </ion-toolbar>
   </ion-header>
   <div id="container">
-  <ion-title>
-    Welcome, {{client?.name}} to the client application.
-  </ion-title>
-  <ion-text>
-    This application was developed by Musa Mohamad and Benjamin Barnett.
-  </ion-text>
+    <ion-title *ngIf="today.length > 0">
+      Welcome, {{ client?.name }}. Ready for today's workout?
+    </ion-title>
+    <ion-title *ngIf="today.length === 0">
+      Welcome, {{ client?.name }}. Enjoy your rest day!
+    </ion-title>
+    <ion-text>
+      This application was developed by Musa Mohamad and Benjamin Barnett.
+    </ion-text>
+    <ion-item slot="header">
+      <ion-label>{{ dayName }}'s Exercises</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-card *ngFor="let workout of today">
+        <ion-card-header>
+          <ion-card-title>{{ workout.exercise_name }}</ion-card-title>
+          <ion-card-subtitle>{{ workout.description }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p><strong>Sets:</strong> {{ workout.sets.join(' reps, ') }} reps</p>
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngIf="today.length === 0">
+        <ion-card-header>
+          <ion-card-title>Rest Day</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Today is a rest day - there are no workouts planned on {{ dayName }}. Enjoy your day off!</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
   </div>
 </ion-content>
 
