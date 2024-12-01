@@ -9,11 +9,10 @@ export interface Client {
   gender: 'Female' | 'Male' | 'Unspecified';
   fitness_program: string;
   email: string;
-  password:string;
+  password: string;
   joined_date: Date;
   ending_date: Date;
-  notes?: string;
-  vip: boolean;
+  special_health_notes?: string;
 }
 
 export interface PersonalTrainer{
@@ -24,6 +23,15 @@ export interface PersonalTrainer{
   email: string;
   password: string;
   is_active: boolean;
+}
+
+export interface Workout {
+  workout_id: string;
+  fitness_program: string;
+  day: string;
+  exercise_name: string;
+  description: string;
+  sets: number[];
 }
 
 interface LoginResponse {
@@ -58,4 +66,12 @@ export class ClientService {
      return this.http.post<LoginResponse>(this.baseUrl + '/client/login', {email, password});
   }
 
+  getWorkoutPlan(clientId: string): Observable<Workout[]> {
+    // get a workout plan from the server
+    return this.http.get<Workout[]>(this.baseUrl + '/workoutplan/' + clientId);
+  }
+
+}
+
+export class WorkoutPlan {
 }

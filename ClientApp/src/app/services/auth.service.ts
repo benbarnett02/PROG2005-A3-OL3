@@ -10,15 +10,12 @@ export class AuthService {
   private currentClient: Client | null = null; // when app starts, no client is logged in
 
   constructor(private clientService: ClientService, private router: Router) {
+    // This could have security implications.
     this.currentClient = JSON.parse(localStorage.getItem('currentClient') || 'null');
 
   }
 
   login(email: string, password: string): Observable<Client> {
-    console.log("yeee2")
-    console.log(email);
-    console.log(password);
-
     if (email.length < 1 && password.length < 1) {
       console.log("length issue")
       throw new Error('Email and password are required');

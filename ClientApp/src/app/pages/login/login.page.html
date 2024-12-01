@@ -12,7 +12,7 @@
         <ion-label position="floating">Email</ion-label>
         <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
-      <div class="validation-error" *ngIf="login.get('email')?.touched && login.get('email')?.errors">
+      <div class="err-msg" *ngIf="login.get('email')?.touched && login.get('email')?.errors">
         <ion-text color="danger" *ngIf="login.get('email')?.errors?.['required']">
           Email is required
         </ion-text>
@@ -25,7 +25,7 @@
         <ion-label position="floating">Password</ion-label>
         <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
-      <div class="validation-error" *ngIf="login.get('password')?.touched && login.get('password')?.errors">
+      <div class="err-msg" *ngIf="login.get('password')?.touched && login.get('password')?.errors">
         <ion-text color="danger" *ngIf="login.get('password')?.errors?.['required']">
           Password is required
         </ion-text>

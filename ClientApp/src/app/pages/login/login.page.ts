@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
       try {
         const { email, password } = this.login.value;
         await firstValueFrom(this.authService.login(email, password));
-        console.log("yee1")
+
         await this.router.navigate(['tabs', 'tab1']);
       } catch (error: any) {
         this.loginError = error.error?.message || 'Login failed. Please try again.';
