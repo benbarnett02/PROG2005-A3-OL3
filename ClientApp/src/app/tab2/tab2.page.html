@@ -3,6 +3,9 @@
     <ion-title>
       Profile
     </ion-title>
+    <ion-buttons slot="end">
+      <app-logout-component></app-logout-component>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -22,10 +25,21 @@
       <ion-label position="floating">Email</ion-label>
       <ion-input formControlName="email"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label position="floating">Phone</ion-label>
-      <ion-input formControlName="phone"></ion-input>
-    </ion-item>
     <ion-button expand="full" type="submit" [disabled]="profileForm.invalid">Update Profile</ion-button>
   </form>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ client?.name || "" }}</ion-card-title>
+      <ion-card-subtitle>{{ client?.fitness_program }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Email:</strong> {{ client?.email }}</p>
+      <p><strong>Gender:</strong> {{ client?.gender }}</p>
+      <p><strong>Date of Birth:</strong> {{ client?.dob }}</p>
+      <p><strong>Joined Date:</strong> {{ client?.joined_date }}</p>
+      <p><strong>Membership Ends:</strong> {{ client?.ending_date }}</p>
+      <p><strong>Special Notes:</strong> {{ client?.special_health_notes }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
