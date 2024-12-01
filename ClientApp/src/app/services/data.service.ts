@@ -80,6 +80,7 @@ export class ClientService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
     });
+
     return this.http.put<Client>(`${this.baseUrl}/client/${client.client_id}`, body, {headers});
   }
 

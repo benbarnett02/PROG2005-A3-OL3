@@ -33,6 +33,9 @@ export class AuthService {
           console.log(response.user)
           this.currentClient = response.user;
           localStorage.setItem('currentClient', JSON.stringify(this.currentClient));
+          response.user.dob = new Date(response.user.dob);
+          response.user.joined_date = new Date(response.user.joined_date);
+          response.user.ending_date = new Date(response.user.ending_date);
           return response.user;
         } else {
           console.log(response.message)
