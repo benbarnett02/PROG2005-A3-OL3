@@ -12,6 +12,11 @@ export class AuthService {
   constructor(private clientService: ClientService, private router: Router) {
     // This could have security implications.
     this.currentClient = JSON.parse(localStorage.getItem('currentClient') || 'null');
+    if(this.currentClient) {
+    this.currentClient.dob = new Date(this.currentClient.dob);
+    this.currentClient.joined_date = new Date(this.currentClient.joined_date);
+    this.currentClient.ending_date = new Date(this.currentClient.ending_date);
+    }
 
   }
 
@@ -47,8 +52,10 @@ export class AuthService {
     return this.currentClient !== null;
   }
 
-  getCurrentClient(): Client | null {
+  getCurrentClient(): Client {
+    if (!this.currentClient) {
+      throw new Error('No client is currently logged in');
+    }
     return this.currentClient;
   }
-
 }
