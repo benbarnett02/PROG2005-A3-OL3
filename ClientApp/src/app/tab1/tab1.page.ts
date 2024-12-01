@@ -32,7 +32,7 @@ export class Tab1Page {
       console.log('No workout plans');
       return [];
     }
-    const day = new Date(Date.now()).getDay() + 2;
+    const day = new Date(Date.now()).getDay();
 
 
     let dayName = '';
