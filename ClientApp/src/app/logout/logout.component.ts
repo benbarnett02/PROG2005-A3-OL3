@@ -17,4 +17,8 @@ export class LogoutComponent {
     this.authService.logout();
   }
 
+  privacy() {
+    this.router.navigate(['/privacy']);
+  }
+
 }

@@ -8,22 +8,14 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
 import {LoginPageModule} from "../logout/logout.module";
 
 @NgModule({
-    imports: [
-        IonicModule,
-        CommonModule,
-        FormsModule,
-        Tab2PageRoutingModule,
-        ReactiveFormsModule,
-        IonicModule,
-        IonicModule,
-        IonicModule,
-        LoginPageModule,
-        IonicModule,
-        IonicModule,
-        IonicModule,
-        IonicModule,
-        IonicModule
-    ],
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    Tab2PageRoutingModule,
+    ReactiveFormsModule,
+    LoginPageModule,
+  ],
   declarations: [Tab2Page]
 })
 export class Tab2PageModule {}

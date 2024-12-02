@@ -15,7 +15,6 @@ import {LoginPageModule} from "../logout/logout.module";
     Tab3PageRoutingModule,
     NgForOf,
     LoginPageModule,
-    IonicModule
   ],
   declarations: [Tab3Page]
 })

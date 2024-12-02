@@ -13,7 +13,6 @@ import { TabsPage } from './tabs.page';
     CommonModule,
     FormsModule,
     TabsPageRoutingModule,
-    IonicModule
   ],
   declarations: [TabsPage]
 })

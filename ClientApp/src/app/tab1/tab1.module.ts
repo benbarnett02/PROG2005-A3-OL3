@@ -14,7 +14,6 @@ import {LoginPageModule} from "../logout/logout.module";
     FormsModule,
     Tab1PageRoutingModule,
     LoginPageModule,
-    IonicModule
   ],
   declarations: [Tab1Page]
 })
