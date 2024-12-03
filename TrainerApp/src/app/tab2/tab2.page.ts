@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
 import { Client } from '../models/client.interface';
@@ -8,74 +8,46 @@ import { Client } from '../models/client.interface';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page implements OnInit {
+export class Tab2Page {
   searchTerm: string = '';
-  isLoading: boolean = false;
-  allClients: Client[] = [];
   searchResults: Client[] = [];
+  isLoading = false;
   error: string | null = null;
   selectedClient: Client | null = null;
-  showDetails: boolean = false;
+  showDetails = false;
 
   constructor(
     private apiService: ApiService,
     private authService: AuthService
   ) {}
 
-  ngOnInit() {
-    this.loadAllClients();
-  }
+  onSearch() {
+    if (!this.searchTerm.trim()) {
+      this.searchResults = [];
+      return;
+    }
 
-  loadAllClients() {
     this.isLoading = true;
     this.error = null;
     const trainerId = this.authService.currentUserValue?.id;
-    
+
     if (!trainerId) {
-      this.error = 'Trainer ID not found';
+      this.error = 'No trainer ID found';
       this.isLoading = false;
       return;
     }
 
-    this.apiService.getClientsForTrainer(trainerId).subscribe({
+    this.apiService.getClientByNameOrId(trainerId, this.searchTerm).subscribe({
       next: (clients) => {
-        this.allClients = clients;
-        this.searchResults = clients; // Initially show all clients
+        this.searchResults = clients;
         this.isLoading = false;
       },
       error: (err) => {
-        console.error('Loading error:', err);
-        this.error = 'Error loading clients. Please try again.';
+        this.error = 'Failed to search clients';
         this.isLoading = false;
+        console.error('Error searching clients:', err);
       }
     });
-  }
-
-  onSearch() {
-    if (!this.searchTerm.trim()) {
-      this.searchResults = this.allClients; // Show all clients when search is empty
-      this.error = null;
-      return;
-    }
-
-    const searchTermLower = this.searchTerm.toLowerCase();
-    this.searchResults = this.allClients.filter(client => 
-      client.name.toLowerCase().includes(searchTermLower)
-    );
-
-    if (this.searchResults.length === 0) {
-      this.error = 'No clients found matching your search.';
-    } else {
-      this.error = null;
-    }
-  }
-
-  clearSearch() {
-    this.searchTerm = '';
-    this.searchResults = this.allClients; // Reset to show all clients
-    this.error = null;
-    this.selectedClient = null;
-    this.showDetails = false;
   }
 
   viewClientDetails(client: Client) {

@@ -1,11 +1,10 @@
-export interface Client {
-    client_id: number;
+export interface ClientCreate {
     name: string;
     dob: string;
     gender: string;
     fitness_program: string;
     email: string;
-    password?: string;
+    password: string;
     joined_date: string;
     ending_date: string;
     special_health_notes: string;

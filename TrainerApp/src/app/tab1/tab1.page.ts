@@ -12,7 +12,7 @@ export class Tab1Page implements OnInit {
   clients: Client[] = [];
   isLoading = false;
   error: string | null = null;
-  sortField: 'name' | 'age' | 'fitnessLevel' = 'name';
+  sortField: 'name' = 'name';
   sortDirection: 'asc' | 'desc' = 'asc';
   selectedClient: Client | null = null;
   showDetails: boolean = false;
@@ -39,7 +39,8 @@ export class Tab1Page implements OnInit {
 
     this.apiService.getClientsForTrainer(trainerId).subscribe({
       next: (clients) => {
-        this.clients = this.sortClients(clients);
+        this.clients = clients;
+        this.sortClients();
         this.isLoading = false;
       },
       error: (err) => {
@@ -50,26 +51,27 @@ export class Tab1Page implements OnInit {
     });
   }
 
-  sortClients(clients: Client[]): Client[] {
-    return [...clients].sort((a, b) => {
-      const aValue = a[this.sortField];
-      const bValue = b[this.sortField];
-      
-      if (aValue === undefined || bValue === undefined) return 0;
-      
-      const comparison = aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
-      return this.sortDirection === 'asc' ? comparison : -comparison;
+  sortClients(): void {
+    if (!this.sortField || !this.clients) return;
+
+    this.clients.sort((a, b) => {
+      let aValue = a[this.sortField].toLowerCase();
+      let bValue = b[this.sortField].toLowerCase();
+
+      if (aValue < bValue) return this.sortDirection === 'asc' ? -1 : 1;
+      if (aValue > bValue) return this.sortDirection === 'asc' ? 1 : -1;
+      return 0;
     });
   }
 
-  onSortChange(field: 'name' | 'age' | 'fitnessLevel') {
+  onSortChange(field: 'name') {
     if (this.sortField === field) {
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
     } else {
       this.sortField = field;
       this.sortDirection = 'asc';
     }
-    this.clients = this.sortClients(this.clients);
+    this.sortClients();
   }
 
   viewClientDetails(client: Client) {
