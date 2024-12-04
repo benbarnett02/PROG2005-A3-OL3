@@ -126,7 +126,12 @@ export class ApiService {
   updateClient(clientId: string, client: Partial<Client>): Observable<Client> {
     console.log('Updating client:', clientId, 'with data:', client);
     return this.http.put<Client>(`${this.API_URL}/client/${clientId}`, client).pipe(
-      tap(response => console.log('Update client response:', response))
+      tap(response => console.log('Update client response:', response)),
+      catchError(error => {
+        console.error('Error updating client:', error);
+        console.error('Error details:', error.error);
+        return throwError(() => new Error(error.error?.message || 'Failed to update client'));
+      })
     );
   }
 

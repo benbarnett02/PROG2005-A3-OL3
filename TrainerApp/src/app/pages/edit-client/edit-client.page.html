@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Client</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteClient()" color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <!-- Name -->
+      <ion-item>
+        <ion-label position="stacked">Name <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input 
+          type="text" 
+          formControlName="name"
+          placeholder="Enter client's full name">
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger" class="ion-padding-start" *ngIf="getErrorMessage('name')">
+        {{ getErrorMessage('name') }}
+      </ion-text>
+
+      <!-- Date of Birth -->
+      <ion-item>
+        <ion-label position="stacked">Date of Birth <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input 
+          type="date" 
+          formControlName="dob"
+          [max]="maxDate"
+          [min]="minDate">
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger" class="ion-padding-start" *ngIf="getErrorMessage('dob')">
+        {{ getErrorMessage('dob') }}
+      </ion-text>
+
+      <!-- Gender -->
+      <ion-item>
+        <ion-label position="stacked">Gender <ion-text color="danger">*</ion-text></ion-label>
+        <ion-select formControlName="gender" placeholder="Select gender">
+          <ion-select-option *ngFor="let option of genderOptions" [value]="option.value">
+            {{ option.label }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-text color="danger" class="ion-padding-start" *ngIf="getErrorMessage('gender')">
+        {{ getErrorMessage('gender') }}
+      </ion-text>
+
+      <!-- Fitness Program -->
+      <ion-item>
+        <ion-label position="stacked">Fitness Program <ion-text color="danger">*</ion-text></ion-label>
+        <ion-select formControlName="fitness_program" placeholder="Select program">
+          <ion-select-option *ngFor="let program of fitnessPrograms" [value]="program.value">
+            {{ program.label }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-text color="danger" class="ion-padding-start" *ngIf="getErrorMessage('fitness_program')">
+        {{ getErrorMessage('fitness_program') }}
+      </ion-text>
+
+      <!-- Joined Date -->
+      <ion-item>
+        <ion-label position="stacked">Joined Date <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input 
+          type="date" 
+          formControlName="joined_date">
+        </ion-input>
+      </ion-item>
+
+      <!-- Ending Date -->
+      <ion-item>
+        <ion-label position="stacked">Ending Date <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input 
+          type="date" 
+          formControlName="ending_date">
+        </ion-input>
+      </ion-item>
+
+      <!-- Special Health Notes -->
+      <ion-item>
+        <ion-label position="stacked">Special Health Notes</ion-label>
+        <ion-textarea 
+          formControlName="special_health_notes"
+          placeholder="Enter any health notes or concerns"
+          rows="4">
+        </ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" [disabled]="clientForm.invalid">
+        Update Client
+      </ion-button>
+    </div>
+  </form>
+</ion-content> 

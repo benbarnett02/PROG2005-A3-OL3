@@ -89,6 +89,10 @@
           </div>
         </ion-avatar>
         <h1>{{ selectedClient.name }}</h1>
+        <ion-button (click)="editClient(selectedClient)" color="primary">
+          <ion-icon slot="start" name="create"></ion-icon>
+          Edit Client
+        </ion-button>
       </div>
 
       <ion-list>

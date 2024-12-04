@@ -16,6 +16,14 @@ const routes: Routes = [
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'add-client',
+    loadChildren: () => import('./pages/add-client/add-client.module').then(m => m.AddClientPageModule)
+  },
+  {
+    path: 'edit-client/:id',
+    loadChildren: () => import('./pages/edit-client/edit-client.module').then(m => m.EditClientPageModule)
   }
 ];
 
