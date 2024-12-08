@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
 import { Client } from '../models/client.interface';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tab1',
@@ -12,18 +14,33 @@ export class Tab1Page implements OnInit {
   clients: Client[] = [];
   isLoading = false;
   error: string | null = null;
-  sortField: 'name' | 'age' | 'fitnessLevel' = 'name';
+  sortField: 'name' = 'name';
   sortDirection: 'asc' | 'desc' = 'asc';
   selectedClient: Client | null = null;
   showDetails: boolean = false;
 
   constructor(
     private apiService: ApiService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.loadClients();
+  }
+
+  ionViewWillEnter() {
+    console.log('Tab1 will enter - refreshing data');
+    this.loadClients().then(() => {
+      // If we're viewing client details, refresh the selected client
+      if (this.showDetails && this.selectedClient) {
+        const updatedClient = this.clients.find(c => c.client_id === this.selectedClient?.client_id);
+        if (updatedClient) {
+          console.log('Updating selected client details with:', updatedClient);
+          this.selectedClient = { ...updatedClient };
+        }
+      }
+    });
   }
 
   loadClients() {
@@ -34,52 +51,59 @@ export class Tab1Page implements OnInit {
     if (!trainerId) {
       this.error = 'No trainer ID found';
       this.isLoading = false;
-      return;
+      return Promise.resolve();
     }
 
-    this.apiService.getClientsForTrainer(trainerId).subscribe({
-      next: (clients) => {
-        this.clients = this.sortClients(clients);
-        this.isLoading = false;
-      },
-      error: (err) => {
-        this.error = 'Failed to load clients';
-        this.isLoading = false;
-        console.error('Error loading clients:', err);
-      }
+    return new Promise<void>((resolve) => {
+      this.apiService.getClientsForTrainer(trainerId).subscribe({
+        next: (clients) => {
+          this.clients = clients;
+          this.sortClients();
+          this.isLoading = false;
+          resolve();
+        },
+        error: (err) => {
+          this.error = 'Failed to load clients';
+          this.isLoading = false;
+          console.error('Error loading clients:', err);
+          resolve();
+        }
+      });
     });
   }
 
-  sortClients(clients: Client[]): Client[] {
-    return [...clients].sort((a, b) => {
-      const aValue = a[this.sortField];
-      const bValue = b[this.sortField];
-      
-      if (aValue === undefined || bValue === undefined) return 0;
-      
-      const comparison = aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
-      return this.sortDirection === 'asc' ? comparison : -comparison;
+  sortClients(): void {
+    if (!this.sortField || !this.clients) return;
+
+    this.clients.sort((a, b) => {
+      let aValue = a[this.sortField].toLowerCase();
+      let bValue = b[this.sortField].toLowerCase();
+
+      if (aValue < bValue) return this.sortDirection === 'asc' ? -1 : 1;
+      if (aValue > bValue) return this.sortDirection === 'asc' ? 1 : -1;
+      return 0;
     });
   }
 
-  onSortChange(field: 'name' | 'age' | 'fitnessLevel') {
+  onSortChange(field: 'name') {
     if (this.sortField === field) {
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
     } else {
       this.sortField = field;
       this.sortDirection = 'asc';
     }
-    this.clients = this.sortClients(this.clients);
+    this.sortClients();
   }
 
   viewClientDetails(client: Client) {
-    this.selectedClient = client;
+    this.selectedClient = { ...client };
     this.showDetails = true;
   }
 
   backToList() {
     this.selectedClient = null;
     this.showDetails = false;
+    this.loadClients();
   }
 
   getInitials(name: string): string {
@@ -119,5 +143,11 @@ export class Tab1Page implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  editClient(client: Client) {
+    this.router.navigate(['/edit-client', client.client_id], {
+      state: { client }
+    });
   }
 }

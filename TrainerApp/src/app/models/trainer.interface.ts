@@ -1,8 +1,9 @@
 export interface PersonalTrainer {
-    id: string;
-    email: string;
-    password?: string;  // Optional as it won't be returned from API
+    personaltrainer_id: number;
     name: string;
-    specialization?: string;
-    experience?: number;
+    email: string;
+    password?: string;
+    gender: string;
+    dob: string;
+    is_active: number;
 } 
