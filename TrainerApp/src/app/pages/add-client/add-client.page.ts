@@ -75,9 +75,11 @@ export class AddClientPage {
       const toast = await this.toastController.create({
         message: 'No trainer ID found. Please log in again.',
         duration: 3000,
-        color: 'danger'
+        color: 'danger',
+        position: 'top'
       });
       await toast.present();
+      this.router.navigate(['/login']);
       return;
     }
 
@@ -91,7 +93,7 @@ export class AddClientPage {
       const clientData: ClientCreate = {
         ...formValue,
         personaltrainer_id: trainerId,
-        dob: new Date(formValue.dob).toISOString().split('T')[0]  // Format as YYYY-MM-DD
+        dob: new Date(formValue.dob).toISOString().split('T')[0]
       };
 
       console.log('Creating client with trainer ID:', trainerId);
@@ -101,21 +103,34 @@ export class AddClientPage {
       const toast = await this.toastController.create({
         message: 'Client created successfully!',
         duration: 2000,
-        color: 'success'
+        color: 'success',
+        position: 'top'
       });
       await toast.present();
 
       this.router.navigate(['/tabs/tab1']);
-    } catch (error) {
+    } catch (error: any) {
       await loading.dismiss();
       console.error('Error creating client:', error);
       
-      const toast = await this.toastController.create({
-        message: 'Failed to create client. Please try again.',
-        duration: 3000,
-        color: 'danger'
-      });
-      await toast.present();
+      if (error.message.includes('email already exists')) {
+        this.clientForm.get('email')?.setErrors({ 'emailExists': true });
+        const toast = await this.toastController.create({
+          message: 'A client with this email already exists.',
+          duration: 3000,
+          color: 'danger',
+          position: 'top'
+        });
+        await toast.present();
+      } else {
+        const toast = await this.toastController.create({
+          message: 'Failed to create client. Please try again.',
+          duration: 3000,
+          color: 'danger',
+          position: 'top'
+        });
+        await toast.present();
+      }
     }
   }
 

@@ -98,7 +98,6 @@ export class ApiService {
 
   createClient(clientData: ClientCreate): Observable<any> {
     console.log('Creating new client:', clientData);
-    // Format the data to match the API's expected structure exactly
     const dataToSend = {
       name: clientData.name,
       dob: clientData.dob,
@@ -117,8 +116,10 @@ export class ApiService {
       tap(response => console.log('Create client response:', response)),
       catchError(error => {
         console.error('Error creating client:', error);
-        console.error('Error details:', error.error);
-        return throwError(() => new Error(error.error?.message || 'Failed to create client'));
+        if (error.error?.error === 'Email already exists') {
+          return throwError(() => new Error('A client with this email already exists.'));
+        }
+        return throwError(() => new Error('Failed to create client. Please try again.'));
       })
     );
   }

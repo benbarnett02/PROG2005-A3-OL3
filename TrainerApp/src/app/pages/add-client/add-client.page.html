@@ -64,17 +64,22 @@
       </ion-text>
 
       <!-- Email -->
-      <ion-item>
+      <ion-item [class.ion-invalid]="clientForm.get('email')?.invalid && clientForm.get('email')?.touched"
+              [class.ion-valid]="clientForm.get('email')?.valid">
         <ion-label position="stacked">Email <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input 
-          type="email" 
-          formControlName="email"
-          placeholder="Enter client's email">
-        </ion-input>
+        <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
-      <ion-text color="danger" class="ion-padding-start" *ngIf="getErrorMessage('email')">
-        {{ getErrorMessage('email') }}
-      </ion-text>
+      <div class="validation-error" *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched">
+        <ion-text color="danger" *ngIf="clientForm.get('email')?.errors?.['required']">
+          Email is required
+        </ion-text>
+        <ion-text color="danger" *ngIf="clientForm.get('email')?.errors?.['email']">
+          Please enter a valid email address
+        </ion-text>
+        <ion-text color="danger" *ngIf="clientForm.get('email')?.errors?.['emailExists']">
+          A client with this email already exists
+        </ion-text>
+      </div>
 
       <!-- Password -->
       <ion-item>

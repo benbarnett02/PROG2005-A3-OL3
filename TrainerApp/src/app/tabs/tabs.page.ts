@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-tabs',
@@ -7,9 +6,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-  constructor(private authService: AuthService) {}
-
-  logout() {
-    this.authService.logout();
-  }
+  clientCount = 0;  // Initialize with 0 or fetch from a service
+  
+  constructor() {}
 }
