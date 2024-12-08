@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PrivacyPageRoutingModule } from './privacy-routing.module';
 
 import { PrivacyPage } from './privacy.page';
+import {IonSegmentContent} from "@ionic/angular/standalone";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PrivacyPageRoutingModule
+    PrivacyPageRoutingModule,
+    IonSegmentContent
   ],
   declarations: [PrivacyPage]
 })
