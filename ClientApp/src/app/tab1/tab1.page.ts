@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Client, ClientService, Workout} from "../services/data.service";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-tab1',
@@ -8,22 +9,19 @@ import {Client, ClientService, Workout} from "../services/data.service";
 })
 export class Tab1Page {
 
-  client: Client | undefined;
+  client: Client;
   workoutPlans: Workout[] = [];
   today: Workout[] = [];
   dayName: string = '';
-  constructor(private clientService: ClientService) {
-    this.clientService.clientLogin('johndoe@example.com', 'password123').subscribe((res) => {
-      this.client = res.user;
-    });
-    console.log(this.client);
-    this.clientService.getWorkoutPlan('1').subscribe((res) => {
+  constructor(private clientService: ClientService, private authService: AuthService) {
+    this.client = this.authService.getCurrentClient();
+
+    this.clientService.getWorkoutPlan(this.client?.client_id).subscribe((res) => {
       this.workoutPlans = res;
 
       this.today = this.getTodayWorkouts();
     });
   }
-
 
 
 
@@ -33,7 +31,8 @@ export class Tab1Page {
       return [];
     }
     const day = new Date(Date.now()).getDay();
-
+console.log(day)
+    console.log("days")
 
     let dayName = '';
     switch (day) {

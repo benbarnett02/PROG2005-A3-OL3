@@ -43,7 +43,7 @@ interface LoginResponse {
   providedIn: 'root',
 })
 export class ClientService {
-  public currentClient: Client | null = null;
+  public currentClient: Client | undefined = undefined;
   private baseUrl: string = 'https://nehemia.it.scu.edu.au/personaltrainer';
   private headers: Headers = new Headers({'Content-Type': 'application/json'});
 
@@ -63,7 +63,6 @@ export class ClientService {
 
   clientLogin(email: string, password: string): Observable<LoginResponse> {
     // Post the email and password to the server
-
     return this.http.post<LoginResponse>(this.baseUrl + '/client/login', {email, password});
   }
 
