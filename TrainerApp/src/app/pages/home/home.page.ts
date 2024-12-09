@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
   authors = [
-    'Musarrat Chowdhury',
-    'Assistant Developer'
+    'Musa Mohammed',
+    'Ben'
   ];
 
   constructor() { }
