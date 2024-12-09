@@ -1,49 +1,97 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home" class="back-button">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Welcome Back</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <ion-list>
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
-      </ion-item>
-      <div class="validation-error" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors">
-        <ion-text color="danger" *ngIf="loginForm.get('email')?.errors?.['required']">
-          Email is required
-        </ion-text>
-        <ion-text color="danger" *ngIf="loginForm.get('email')?.errors?.['email']">
-          Please enter a valid email
-        </ion-text>
-      </div>
-
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
-      </ion-item>
-      <div class="validation-error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors">
-        <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">
-          Password is required
-        </ion-text>
-        <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['minlength']">
-          Password must be at least 6 characters
-        </ion-text>
-      </div>
-    </ion-list>
-
-    <div class="ion-padding">
-      <ion-button expand="block" type="submit" [disabled]="!loginForm.valid || isSubmitting">
-        {{ isSubmitting ? 'Logging in...' : 'Login' }}
-      </ion-button>
+  <div class="login-container">
+    <div class="logo-container animate__animated animate__fadeIn">
+      <ion-icon name="fitness-outline" class="logo-icon"></ion-icon>
+      <h1>TrainerApp</h1>
+      <p class="subtitle">Sign in to continue your fitness journey</p>
     </div>
 
-    <div class="ion-text-center" *ngIf="loginError">
-      <ion-text color="danger">
-        {{ loginError }}
-      </ion-text>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="animate__animated animate__fadeInUp">
+      <div class="form-container">
+        <ion-item class="custom-input" lines="none">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <div class="validation-error" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors">
+          <ion-text color="danger" *ngIf="loginForm.get('email')?.errors?.['required']">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            Email is required
+          </ion-text>
+          <ion-text color="danger" *ngIf="loginForm.get('email')?.errors?.['email']">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            Please enter a valid email
+          </ion-text>
+        </div>
+
+        <ion-item class="custom-input" lines="none">
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input [type]="showPassword ? 'text' : 'password'" formControlName="password"></ion-input>
+          <ion-icon 
+            [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" 
+            slot="end" 
+            class="password-toggle"
+            (click)="showPassword = !showPassword">
+          </ion-icon>
+        </ion-item>
+        <div class="validation-error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors">
+          <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            Password is required
+          </ion-text>
+          <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            Password must be at least 6 characters
+          </ion-text>
+        </div>
+
+        <div class="forgot-password">
+          <ion-button fill="clear" size="small" color="medium">
+            Forgot Password?
+          </ion-button>
+        </div>
+
+        <ion-button expand="block" type="submit" class="login-button" [disabled]="!loginForm.valid || isSubmitting">
+          <ion-icon name="log-in-outline" slot="start"></ion-icon>
+          {{ isSubmitting ? 'Logging in...' : 'Sign In' }}
+        </ion-button>
+
+        <div class="ion-text-center error-message" *ngIf="loginError">
+          <ion-text color="danger">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            {{ loginError }}
+          </ion-text>
+        </div>
+      </div>
+    </form>
+
+    <div class="social-login animate__animated animate__fadeIn">
+      <div class="divider">
+        <span>Or continue with</span>
+      </div>
+      <div class="social-buttons">
+        <ion-button fill="outline" class="social-button">
+          <ion-icon name="logo-google"></ion-icon>
+        </ion-button>
+        <ion-button fill="outline" class="social-button">
+          <ion-icon name="logo-apple"></ion-icon>
+        </ion-button>
+        <ion-button fill="outline" class="social-button">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </ion-button>
+      </div>
     </div>
-  </form>
+  </div>
 </ion-content>

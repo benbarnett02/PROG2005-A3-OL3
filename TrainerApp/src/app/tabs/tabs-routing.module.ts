@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
       },
       {
+        path: 'privacy',
+        loadChildren: () => import('../pages/privacy/privacy.module').then(m => m.PrivacyPageModule)
+      },
+      {
         path: 'add-client',
         loadChildren: () => import('../pages/add-client/add-client.module').then(m => m.AddClientPageModule)
       },
