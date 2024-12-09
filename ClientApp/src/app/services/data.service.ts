@@ -42,6 +42,9 @@ interface LoginResponse {
 @Injectable({
   providedIn: 'root',
 })
+
+// This injectable service is used to manage the data of the client.
+// The service has methods to get the clients and personal trainers from the server, as well as to update the current client on the server.
 export class ClientService {
   public currentClient: Client | undefined = undefined;
   private baseUrl: string = 'https://nehemia.it.scu.edu.au/personaltrainer';
@@ -51,7 +54,7 @@ export class ClientService {
   }
 
   getClients(): Observable<PersonalTrainer[]> {
-    // get PTs from the server
+    // get PTs from the server - not actually used in this app, but was used for testing.
     return this.http.get<PersonalTrainer[]>(this.baseUrl + '/personaltrainer');
 
   }
@@ -66,6 +69,9 @@ export class ClientService {
     return this.http.post<LoginResponse>(this.baseUrl + '/client/login', {email, password});
   }
 
+
+  // The updateClient method takes a client as an argument and returns an observable of the client.
+  // This allows a client to update some details about themselves.
   updateClient(client: Client): Observable<Client> {
     // update the client on the server
     // put as x-www-form-urlencoded
@@ -84,6 +90,7 @@ export class ClientService {
   }
 
   private toUrlEncoded(obj: any, excludeKeys: string[] = []): string {
+    // Convert an object to a URL encoded string.
     return Object.entries(obj)
       .filter(([key]) => !excludeKeys.includes(key)) // Exclude specified keys
       .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(this.formatValue(value))}`)
@@ -91,7 +98,7 @@ export class ClientService {
   }
 
   private formatValue(value: any): string {
-    // Convert Date objects to ISO strings
+    // Convert Date objects to ISO strings (yyyy-mm-dd) as the server expects
     if (value instanceof Date) {
       return value.toISOString().split('T')[0];
     }

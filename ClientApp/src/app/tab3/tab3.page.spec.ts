@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import {ExploreContainerComponentModule} from '../explore-container/explore-container.module';
 
-import { Tab3Page } from './tab3.page';
+import {Tab3Page} from './tab3.page';
 
 describe('Tab3Page', () => {
   let component: Tab3Page;

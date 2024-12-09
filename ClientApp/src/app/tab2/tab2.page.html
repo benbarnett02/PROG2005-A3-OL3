@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-<ion-card button id="open-modal">
+  <ion-card button id="open-modal">
     <ion-card-header>
 
       <ion-card-title>{{ client?.name || "" }}</ion-card-title>
@@ -27,7 +27,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-modal  trigger="open-modal" [keepContentsMounted]="true">
+  <ion-modal trigger="open-modal" [keepContentsMounted]="true">
     <ng-template>
       <ion-header>
         <ion-toolbar>
@@ -40,34 +40,34 @@
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
-    <ion-content>
-    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
-      <ion-item>
-        <ion-label position="floating">Name</ion-label>
-        <ion-input formControlName="name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Date of Birth</ion-label>
-        <ion-datetime type="date" formControlName="dob"></ion-datetime>
-      </ion-item>
+      <ion-content>
+        <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+          <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input formControlName="name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Date of Birth</ion-label>
+            <ion-datetime type="date" formControlName="dob"></ion-datetime>
+          </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Gender</ion-label>
-        <ion-select formControlName="gender">
-          <ion-select-option>Male</ion-select-option>
-          <ion-select-option>Female</ion-select-option>
-          <ion-select-option>Unspecified</ion-select-option>
-        </ion-select>
-      </ion-item>
+          <ion-item>
+            <ion-label position="floating">Gender</ion-label>
+            <ion-select formControlName="gender">
+              <ion-select-option>Male</ion-select-option>
+              <ion-select-option>Female</ion-select-option>
+              <ion-select-option>Unspecified</ion-select-option>
+            </ion-select>
+          </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Health Notes</ion-label>
-        <ion-textarea formControlName="special_health_notes"></ion-textarea>
-      </ion-item>
+          <ion-item>
+            <ion-label position="floating">Health Notes</ion-label>
+            <ion-textarea formControlName="special_health_notes"></ion-textarea>
+          </ion-item>
 
-      <ion-button expand="full" type="submit" [disabled]="clientForm.invalid">Update Profile</ion-button>
-    </form>
-    </ion-content>
+          <ion-button expand="full" type="submit" [disabled]="clientForm.invalid">Update Profile</ion-button>
+        </form>
+      </ion-content>
     </ng-template>
   </ion-modal>
 </ion-content>

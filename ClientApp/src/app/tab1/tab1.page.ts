@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Client, ClientService, Workout} from "../services/data.service";
 import {AuthService} from "../services/auth.service";
 
@@ -13,6 +13,7 @@ export class Tab1Page {
   workoutPlans: Workout[] = [];
   today: Workout[] = [];
   dayName: string = '';
+
   constructor(private clientService: ClientService, private authService: AuthService) {
     this.client = this.authService.getCurrentClient();
 
@@ -24,17 +25,19 @@ export class Tab1Page {
   }
 
 
-
-  getTodayWorkouts()  : Workout[] {
+  // This is used to display on the home page what workouts need to be done today.
+  getTodayWorkouts(): Workout[] {
     if (!this.workoutPlans) {
       console.log('No workout plans');
       return [];
     }
     const day = new Date(Date.now()).getDay();
-console.log(day)
+    console.log(day)
     console.log("days")
 
     let dayName = '';
+
+// Locale is a nicer way of doing this, but this is fine for now & simpler.
     switch (day) {
       case 0:
         dayName = 'Sunday';

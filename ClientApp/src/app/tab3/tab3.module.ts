@@ -1,10 +1,10 @@
-import { IonicModule } from '@ionic/angular';
-import { NgModule } from '@angular/core';
+import {IonicModule} from '@ionic/angular';
+import {NgModule} from '@angular/core';
 import {CommonModule, NgForOf} from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Tab3Page } from './tab3.page';
+import {FormsModule} from '@angular/forms';
+import {Tab3Page} from './tab3.page';
 
-import { Tab3PageRoutingModule } from './tab3-routing.module';
+import {Tab3PageRoutingModule} from './tab3-routing.module';
 import {LoginPageModule} from "../logout/logout.module";
 
 @NgModule({
@@ -18,4 +18,5 @@ import {LoginPageModule} from "../logout/logout.module";
   ],
   declarations: [Tab3Page]
 })
-export class Tab3PageModule {}
+export class Tab3PageModule {
+}

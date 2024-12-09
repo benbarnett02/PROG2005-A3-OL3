@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth.service';
 import {ClientService} from "../../services/data.service";
-import { firstValueFrom } from 'rxjs';
+import {firstValueFrom} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +16,7 @@ export class LoginPage implements OnInit {
   isSubmitting = false;
   loginError: string = '';
 
+  // This page is the login page for the app. It is the first page the user sees when they open the app.
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -33,13 +34,15 @@ export class LoginPage implements OnInit {
     }
   }
 
+  // This method is called when the user submits the login form.
   async loginSubmit() {
     if (this.login.valid) {
       this.isSubmitting = true;
       this.loginError = '';
 
       try {
-        const { email, password } = this.login.value;
+        const {email, password} = this.login.value;
+        // Call the login method on the auth service.
         await firstValueFrom(this.authService.login(email, password));
 
         await this.router.navigate(['tabs', 'tab1']);
